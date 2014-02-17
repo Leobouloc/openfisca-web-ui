@@ -7,7 +7,8 @@ require.config({
         'd3': '/bower/d3/d3',
         'domReady': '/bower/requirejs-domready/domReady',
         'handlebars': '/bower/handlebars/handlebars.amd',
-        'jquery': '/bower/jquery/jquery.min',
+        'jquery': '/bower/jquery/jquery',
+        'sticky': '/bower/sticky/jquery.sticky',
         'templates': '../templates/templates',
         'underscore': '/bower/underscore/underscore',
 

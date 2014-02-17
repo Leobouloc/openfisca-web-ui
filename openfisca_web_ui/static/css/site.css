@@ -7,6 +7,16 @@
     word-wrap: break-word;
 }
 
+#chart-wrapper {
+    background: white;
+    width: 100%;
+    z-index: 1;
+}
+
+#chart-wrapper-sticky-wrapper {
+    margin-bottom: 1em;
+}
+
 .collapse-node {
     border-left: 3px solid #2A6496;
     padding-left: 10px;
@@ -14,10 +24,6 @@
 
 .collapse-node-toggle:hover {
     text-decoration: none;
-}
-
-.container {
-    width: 90%;
 }
 
 .nav-tabs {

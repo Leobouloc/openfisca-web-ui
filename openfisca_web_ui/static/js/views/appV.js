@@ -1,27 +1,28 @@
 define([
+	'jquery',
 	'underscore',
 	'backbone',
 	'd3',
+	'sticky',
 
 	'WaterfallChartV',
 	'LocatingChartV',
 	],
-	function (_, Backbone, d3, WaterfallChartV, LocatingChartV) {
-
+	function ($, _, Backbone, d3, sticky, WaterfallChartV, LocatingChartV) {
 		var AppV = Backbone.View.extend({
-			events: {},
 			el: '#chart-wrapper',
+			events: {},
 
 			width: 980,
 			height: 500,
-			
+
 			initialize: function () {
 				console.info('AppView initialized');
-
 				/* Init svg */
 				this.svg = d3.select(this.el).append('svg')
 					.attr('width', this.width)
 					.attr('height', this.height);
+				this.$el.sticky();
 			},
 			render: function (args) {
 				var args = args || {};

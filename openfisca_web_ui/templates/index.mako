@@ -40,12 +40,14 @@ from openfisca_web_ui import model, urls
     <strong>Attention</strong> : ce simulateur est en cours de développement.<br>
     Les données que vous saisissez pourront être effacées et les valeurs des simulations peuvent comporter des erreurs.
 </div>
-<div class="row">
-  <div class="col-sm-4">
-    <div id="form-wrapper"></div>
-  </div>
-  <div class="col-sm-8">
+<div class="chart row">
+  <div class="col-sm-12">
     <div id="chart-wrapper"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div id="form-wrapper"></div>
   </div>
 </div>
 </%def>
