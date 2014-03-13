@@ -19,14 +19,14 @@ define([
 						json.children = [];
 
 					_.each(old_children, function (el) {
-						if(el.values[0] !== 0) {
+						if(!_.isUndefined(el.value) && el.value !== 0 || el.values[0] !== 0) {
 							var newEl = el;
 							newEl._id = el.code;
-							newEl.name = el.short_name;
 
 							if(el.children) { doIt(el); }
 							else {
-								newEl.value = newEl.values[0];
+								/* Sécurité : si aucun scénario n'a été sélectionné on sélectionne le premier */
+								if(_.isUndefined(newEl.value)) newEl.value = newEl.values[0];
 							}
 							json.children.push(newEl);
 						}
@@ -161,6 +161,29 @@ define([
 				};
 				doIt(data.children);
 				this.outputValue = data;
+				return this;
+			},
+			/*
+				Select scenario value
+			*/
+			selectScenarioValue: function (scenarioIndex) {
+				var json = this.outputValue;
+
+				var doIt = function (json) {
+					json.value = json.values[scenarioIndex];
+					var that = this,
+						old_children = json.children;
+						json.children = [];
+					_.each(old_children, function (el) {
+						if(el.children) { doIt(el); }
+						el.value = el.values[scenarioIndex];
+						json.children.push(el);
+					});
+					return json;
+				};
+
+				var result = doIt(json);
+				this.outputValue = result;
 				return this;
 			},
 			/*
